@@ -1,8 +1,6 @@
 
 digraph AudioSampling {
-  graph [fontname = "微软雅黑"];
-  node [fontname = "微软雅黑",pad="0.5"];
-  edge [fontname = "微软雅黑"];
+  node [pad="0.5"];
   pad="0.5"
 
   start
