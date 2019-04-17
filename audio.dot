@@ -1,0 +1,24 @@
+
+digraph AudioSampling {
+  graph [fontname = "微软雅黑"];
+  node [fontname = "微软雅黑",pad="0.5"];
+  edge [fontname = "微软雅黑"];
+  pad="0.5"
+
+  start
+  node[shape="box"]
+  start -> init_basic -> init_usb ->check_usb_status
+  check_usb_status -> check_usb_status [label="否",dir="back"]
+  check_usb_status -> init_audio -> start_audio ->init_fs -> write_file
+  write_file -> stop 
+
+  start [label="开始",labelloc=c]
+  init_basic [label="初始化外设"]
+  init_usb [label="初始化USB"]
+  check_usb_status [shape="diamond", label="U盘是否插入",fixedsize="true", width="1.5", height=".8"]
+  init_audio [label="初始化设置\n音频采集参数"]
+  start_audio [label="启动音频采集"]
+  init_fs [label="挂载文件系统"]
+  write_file [label="写入数据到U盘"]
+  stop [shape="oval", label="结束"]
+}
